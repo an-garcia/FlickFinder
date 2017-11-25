@@ -5,7 +5,7 @@
 ![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-23at14.00.11x.png)
 
 
-FlickFinder is an iOS sample application that find images (flicks) in the flick API using latitude and longitue coordenates.
+FlickFinder is an iOS sample application that find images (flicks) in the flick API using latitude and longitude coordinates.
 The purpose of the project is to learn mobile development for iOS using swift.
 The application is based on [iOS Networking with Swift](https://www.udacity.com/course/ios-networking-with-swift--ud421) course.
 
