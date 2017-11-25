@@ -1,24 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8bW-yP-9aU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="KcW-pg-8F3">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="8bW-yP-9aU" customClass="ViewController" customModule="FlickFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mxz-rw-fBa"/>
+                        <viewControllerLayoutGuide type="bottom" id="sWR-oZ-Bc7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gkl-9E-4sh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-dn-omo">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flick Finder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPI-t2-aGl">
+                                        <rect key="frame" x="8" y="8" width="327" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="nlp-ZE-L4M"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5j9-Sx-bBP">
+                                        <rect key="frame" x="8" y="56" width="327" height="425"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aRU-TD-hz6">
+                                        <rect key="frame" x="8" y="489" width="327" height="32"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phrase" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sbQ-Q6-TAC">
+                                                <rect key="frame" x="0.0" y="0.0" width="298" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="lax-RU-4rM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfn-Mv-1sK">
+                                                <rect key="frame" x="303" y="0.0" width="24" height="32"/>
+                                                <state key="normal" image="SearchIcon"/>
+                                                <connections>
+                                                    <action selector="searchByPhrase:" destination="8bW-yP-9aU" eventType="touchUpInside" id="Mct-Eh-BA9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Pbm-xG-ny8">
+                                        <rect key="frame" x="8" y="529" width="327" height="32"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KTU-dy-8bD">
+                                                <rect key="frame" x="0.0" y="0.0" width="146.5" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bsg-c3-VeX">
+                                                <rect key="frame" x="151.5" y="0.0" width="146.5" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oer-gf-Rxr">
+                                                <rect key="frame" x="303" y="0.0" width="24" height="32"/>
+                                                <state key="normal" image="SearchIcon"/>
+                                                <connections>
+                                                    <action selector="searchByLatLon:" destination="8bW-yP-9aU" eventType="touchUpInside" id="Ddv-9e-Fut"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="KTU-dy-8bD" firstAttribute="width" secondItem="Bsg-c3-VeX" secondAttribute="width" id="hLi-vc-Rto"/>
+                                            <constraint firstItem="Bsg-c3-VeX" firstAttribute="height" secondItem="KTU-dy-8bD" secondAttribute="height" id="u20-zT-hsN"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5L-Mj-QZd">
+                                        <rect key="frame" x="8" y="569" width="327" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="1we-Pq-rK0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Oer-gf-Rxr" firstAttribute="width" secondItem="Gfn-Mv-1sK" secondAttribute="width" id="d5A-cf-LAv"/>
+                                    <constraint firstItem="KTU-dy-8bD" firstAttribute="height" secondItem="sbQ-Q6-TAC" secondAttribute="height" id="u9G-Jg-GNb"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="SSu-dn-omo" firstAttribute="top" secondItem="Mxz-rw-fBa" secondAttribute="bottom" id="268-6t-Fio"/>
+                            <constraint firstItem="sWR-oZ-Bc7" firstAttribute="top" secondItem="SSu-dn-omo" secondAttribute="bottom" id="Fm7-fR-6ym"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SSu-dn-omo" secondAttribute="trailing" id="mQY-hm-nlI"/>
+                            <constraint firstItem="SSu-dn-omo" firstAttribute="leading" secondItem="Gkl-9E-4sh" secondAttribute="leadingMargin" id="ziD-pD-nYK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MVi-Wl-gT2"/>
                     </view>
+                    <connections>
+                        <outlet property="latLonSearchButton" destination="Oer-gf-Rxr" id="jZh-BM-UtO"/>
+                        <outlet property="latitudeTextField" destination="KTU-dy-8bD" id="gUB-B9-Ff5"/>
+                        <outlet property="longitudeTextField" destination="Bsg-c3-VeX" id="aUV-3o-V0g"/>
+                        <outlet property="photoImageView" destination="5j9-Sx-bBP" id="dww-kR-C1C"/>
+                        <outlet property="photoTitleLabel" destination="d5L-Mj-QZd" id="bBg-A0-ncr"/>
+                        <outlet property="phraseSearchButton" destination="Gfn-Mv-1sK" id="lBv-bs-EPp"/>
+                        <outlet property="phraseTextField" destination="sbQ-Q6-TAC" id="tDb-Cz-qFq"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="COY-3b-VIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="148" y="181"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SearchIcon" width="24" height="24"/>
+    </resources>
 </document>

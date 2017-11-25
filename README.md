@@ -1,8 +1,8 @@
 # FlickFinder
 
 
-![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-23at14.00.07.png)
-![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-23at14.00.11.png)
+![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-24at19.55.56.png)
+![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-23at14.00.11x.png)
 
 
 FlickFinder is an iOS sample application that find images (flicks) in the flick API using latitude and longitue coordenates.
@@ -18,8 +18,6 @@ The application is based on [iOS Networking with Swift](https://www.udacity.com/
 ## Notes
 To visualize JSON:
 - [Postman (Google Chrome only)](https://www.getpostman.com/)
-- [Paw (Desktop app)](https://paw.cloud/)
-- [Cocoa Rest Client (Desktop app)](http://mmattozzi.github.io/cocoa-rest-client/)
 
 flickr API documentation:
 - [Flickr documentation](https://www.flickr.com/services/api/)
