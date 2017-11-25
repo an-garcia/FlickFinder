@@ -78,8 +78,17 @@ class ViewController: UIViewController {
         
         if isTextFieldValid(latitudeTextField, forRange: Constants.Flickr.SearchLatRange) && isTextFieldValid(longitudeTextField, forRange: Constants.Flickr.SearchLonRange) {
             photoTitleLabel.text = "Searching..."
-            // TODO: Set necessary parameters!
-            let methodParameters: [String: AnyObject] = [:]
+            
+            // Set necessary parameters!
+            var methodParameters: [String: AnyObject] = [:]
+            methodParameters[Constants.FlickrParameterKeys.SafeSearch] = Constants.FlickrParameterValues.UseSafeSearch as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Extras] = Constants.FlickrParameterValues.MediumURL as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.BoundingBox] = bboxString() as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.APIKey] = Constants.FlickrParameterValues.APIKey as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Method] = Constants.FlickrParameterValues.PhotoSearchMethod as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Format] = Constants.FlickrParameterValues.ResponseFormat as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.NoJSONCallback] = Constants.FlickrParameterValues.DisableJSONCallback as AnyObject
+            
             displayImageFromFlickrBySearch(methodParameters)
         }
         else {
@@ -87,6 +96,28 @@ class ViewController: UIViewController {
             photoTitleLabel.text = "Lat should be [-90, 90].\nLon should be [-180, 180]."
         }
     }
+    
+    // Create the latitude and longitude area to search.
+    // See https://www.flickr.com/services/api/flickr.photos.search.html
+    private func bboxString() -> String {
+        // A comma-delimited list of 4 values defining the Bounding Box of the area that will be searched.
+        // The 4 values represent the bottom-left corner of the box and the top-right corner, minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude.
+        
+        var minimumLongitude : Double = Double(longitudeTextField.text!)! - Constants.Flickr.SearchBBoxHalfWidth
+        var minimumLatitude : Double = Double(latitudeTextField.text!)! - Constants.Flickr.SearchBBoxHalfHeight
+        var maximumLongitude : Double = Double(longitudeTextField.text!)! + Constants.Flickr.SearchBBoxHalfWidth
+        var maximumLatitude : Double = Double(latitudeTextField.text!)! + Constants.Flickr.SearchBBoxHalfHeight
+        
+        // Longitude has a range of -180 to 180 , latitude of -90 to 90. Defaults to -180, -90, 180, 90 if not specified.
+        minimumLongitude = max(minimumLongitude, Constants.Flickr.SearchLonRange.0)
+        minimumLatitude = max(minimumLatitude, Constants.Flickr.SearchLatRange.0)
+        maximumLongitude = min(maximumLongitude, Constants.Flickr.SearchLonRange.1)
+        maximumLatitude = min(maximumLatitude, Constants.Flickr.SearchLatRange.1)
+        
+        let result : String = "\(minimumLongitude),\(minimumLatitude),\(maximumLongitude),\(maximumLatitude)"
+        return result
+    }
+    
     
     // MARK: Flickr API
     
