@@ -103,19 +103,17 @@ class ViewController: UIViewController {
         // A comma-delimited list of 4 values defining the Bounding Box of the area that will be searched.
         // The 4 values represent the bottom-left corner of the box and the top-right corner, minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude.
         
-        var minimumLongitude : Double = Double(longitudeTextField.text!)! - Constants.Flickr.SearchBBoxHalfWidth
-        var minimumLatitude : Double = Double(latitudeTextField.text!)! - Constants.Flickr.SearchBBoxHalfHeight
-        var maximumLongitude : Double = Double(longitudeTextField.text!)! + Constants.Flickr.SearchBBoxHalfWidth
-        var maximumLatitude : Double = Double(latitudeTextField.text!)! + Constants.Flickr.SearchBBoxHalfHeight
-        
-        // Longitude has a range of -180 to 180 , latitude of -90 to 90. Defaults to -180, -90, 180, 90 if not specified.
-        minimumLongitude = max(minimumLongitude, Constants.Flickr.SearchLonRange.0)
-        minimumLatitude = max(minimumLatitude, Constants.Flickr.SearchLatRange.0)
-        maximumLongitude = min(maximumLongitude, Constants.Flickr.SearchLonRange.1)
-        maximumLatitude = min(maximumLatitude, Constants.Flickr.SearchLatRange.1)
-        
-        let result : String = "\(minimumLongitude),\(minimumLatitude),\(maximumLongitude),\(maximumLatitude)"
-        return result
+        if let latitude = Double(latitudeTextField.text!), let longitude = Double(longitudeTextField.text!) {
+            // Longitude has a range of -180 to 180 , latitude of -90 to 90. Defaults to -180, -90, 180, 90 if not specified.
+            let minimumLongitude : Double = max(longitude - Constants.Flickr.SearchBBoxHalfWidth, Constants.Flickr.SearchLonRange.0)
+            let minimumLatitude : Double = max(latitude - Constants.Flickr.SearchBBoxHalfHeight, Constants.Flickr.SearchLatRange.0)
+            let maximumLongitude : Double = min(longitude + Constants.Flickr.SearchBBoxHalfWidth, Constants.Flickr.SearchLonRange.1)
+            let maximumLatitude : Double = min(latitude + Constants.Flickr.SearchBBoxHalfHeight, Constants.Flickr.SearchLatRange.1)
+            
+            return "\(minimumLongitude),\(minimumLatitude),\(maximumLongitude),\(maximumLatitude)"
+        } else {
+            return "0,0,0,0"
+        }
     }
     
     
