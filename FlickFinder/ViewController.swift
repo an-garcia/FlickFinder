@@ -53,8 +53,17 @@ class ViewController: UIViewController {
         
         if !phraseTextField.text!.isEmpty {
             photoTitleLabel.text = "Searching..."
-            // TODO: Set necessary parameters!
-            let methodParameters: [String: AnyObject] = [:]
+            
+            // Set necessary parameters!
+            var methodParameters: [String: AnyObject] = [:]
+            methodParameters[Constants.FlickrParameterKeys.SafeSearch] = Constants.FlickrParameterValues.UseSafeSearch as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Text] = phraseTextField.text as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Extras] = Constants.FlickrParameterValues.MediumURL as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.APIKey] = Constants.FlickrParameterValues.APIKey as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Method] = Constants.FlickrParameterValues.PhotoSearchMethod as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.Format] = Constants.FlickrParameterValues.ResponseFormat as AnyObject
+            methodParameters[Constants.FlickrParameterKeys.NoJSONCallback] = Constants.FlickrParameterValues.DisableJSONCallback as AnyObject
+            
             displayImageFromFlickrBySearch(methodParameters)
         } else {
             setUIEnabled(true)
@@ -89,7 +98,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: Helper for Creating a URL from Parameters
-    
     private func flickrURLFromParameters(_ parameters: [String: AnyObject]) -> URL {
         
         var components = URLComponents()
