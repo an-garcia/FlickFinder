@@ -1,8 +1,8 @@
 # FlickFinder
 
 
-![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-24at19.55.56.png)
-![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-23at14.00.11x.png)
+![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-25at12.59.08.png)
+![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-25at13.03.33.png)
 
 
 FlickFinder is an iOS sample application that find images (flicks) in the flick API using latitude and longitude coordinates.
